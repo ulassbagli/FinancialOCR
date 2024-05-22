@@ -22,13 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Companies\Dtos\" />
-    <Folder Include="Features\Companies\Models\" />
-    <Folder Include="Features\Companies\Profiles\" />
-    <Folder Include="Features\Companies\Queries\" />
-    <Folder Include="Features\Companies\Rules\" />
-    <Folder Include="Features\Companies\Constants\" />
-    <Folder Include="Features\Companies\Commands\" />
     <Folder Include="Features\Customers\Dtos\" />
     <Folder Include="Features\Customers\Models\" />
     <Folder Include="Features\Customers\Profiles\" />

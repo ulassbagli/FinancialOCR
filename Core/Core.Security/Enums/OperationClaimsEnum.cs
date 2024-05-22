@@ -5,6 +5,7 @@ public enum OperationClaimsEnum
     User = 1,
     Admin = 2,
     Developer = 3,
-    Accountant = 4
+    Accountant = 4,
+    Company = 5,
     
 }
