@@ -1,9 +1,9 @@
 ﻿using Application.Features.Frameworks.Constants;
 using Application.Features.ProgrammingLanguages.Constants;
-using Application.Services.Repositories.Frameworks;
 using Core.CrossCuttingConcerns.Exceptions;
 using Core.Persistence.Paging;
 using Domain.Entities;
+using Project.Application.Services.Repositories.Frameworks;
 
 namespace Application.Features.Frameworks.Rules;
 

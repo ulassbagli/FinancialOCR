@@ -1,5 +1,6 @@
 ﻿using Application.Features.Authentication.Command.LoginCommand;
 using Application.Features.Authentication.Command.RegisterCommand;
+using Core.Security.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

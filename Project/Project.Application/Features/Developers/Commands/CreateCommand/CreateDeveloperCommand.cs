@@ -1,13 +1,13 @@
 using Application.Features.Authentication.Command.UserOperationClaimCommand;
 using Application.Features.Developers.Dtos.BaseDto;
 using Application.Features.Developers.Rules;
-using Application.Services.Repositories.Developers;
 using Application.Services.Repositories.Users;
 using AutoMapper;
 using Core.Security.Entities;
 using Core.Security.Enums;
 using Domain.Entities;
 using MediatR;
+using Project.Application.Services.Repositories.Developers;
 
 namespace Application.Features.Developers.Commands.CreateCommand;
 

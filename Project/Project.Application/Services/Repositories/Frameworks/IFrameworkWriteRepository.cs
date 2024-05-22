@@ -1,9 +1,9 @@
 ﻿using Core.Persistence.Repositories;
 using Domain.Entities;
 
-namespace Application.Services.Repositories.Frameworks;
+namespace Project.Application.Services.Repositories.Frameworks;
 
-public interface IFrameworkWriteRepository: IWriteRepository<Framework>
+public interface IFrameworkWriteRepository : IWriteRepository<Framework>
 {
-    
+
 }

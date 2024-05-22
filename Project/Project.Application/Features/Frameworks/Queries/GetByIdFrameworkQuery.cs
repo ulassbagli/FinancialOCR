@@ -1,8 +1,8 @@
 ﻿using Application.Features.Frameworks.Dtos.BaseDto;
 using Application.Features.Frameworks.Rules;
-using Application.Services.Repositories.Frameworks;
 using AutoMapper;
 using MediatR;
+using Project.Application.Services.Repositories.Frameworks;
 
 namespace Application.Features.Frameworks.Queries;
 

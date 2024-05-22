@@ -16,7 +16,54 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Core.Application\Core.Application.csproj" />
     <ProjectReference Include="..\..\Core\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj" />
+    <ProjectReference Include="..\..\Core\Core.Persistence\Core.Persistence.csproj" />
     <ProjectReference Include="..\..\Core\Core.Security\Core.Security.csproj" />
+    <ProjectReference Include="..\Project.Domain\Project.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Companies\Dtos\" />
+    <Folder Include="Features\Companies\Models\" />
+    <Folder Include="Features\Companies\Profiles\" />
+    <Folder Include="Features\Companies\Queries\" />
+    <Folder Include="Features\Companies\Rules\" />
+    <Folder Include="Features\Companies\Constants\" />
+    <Folder Include="Features\Companies\Commands\" />
+    <Folder Include="Features\Customers\Dtos\" />
+    <Folder Include="Features\Customers\Models\" />
+    <Folder Include="Features\Customers\Profiles\" />
+    <Folder Include="Features\Customers\Queries\" />
+    <Folder Include="Features\Customers\Rules\" />
+    <Folder Include="Features\Customers\Constants\" />
+    <Folder Include="Features\Customers\Commands\" />
+    <Folder Include="Features\Files\Rules\" />
+    <Folder Include="Features\Files\Profiles\" />
+    <Folder Include="Features\Files\Queries\" />
+    <Folder Include="Features\Files\Dtos\" />
+    <Folder Include="Features\Files\Models\" />
+    <Folder Include="Features\Files\Constants\" />
+    <Folder Include="Features\Files\Command\" />
+    <Folder Include="Features\Invoices\Dtos\" />
+    <Folder Include="Features\Invoices\Models\" />
+    <Folder Include="Features\Invoices\Profiles\" />
+    <Folder Include="Features\Invoices\Queries\" />
+    <Folder Include="Features\Invoices\Rules\" />
+    <Folder Include="Features\Invoices\Constants\" />
+    <Folder Include="Features\Invoices\Commands\" />
+    <Folder Include="Features\OcrResults\Dtos\" />
+    <Folder Include="Features\OcrResults\Models\" />
+    <Folder Include="Features\OcrResults\Profiles\" />
+    <Folder Include="Features\OcrResults\Queries\" />
+    <Folder Include="Features\OcrResults\Rules\" />
+    <Folder Include="Features\OcrResults\Constants\" />
+    <Folder Include="Features\OcrResults\Commands\" />
+    <Folder Include="Features\SubscriptionPayments\Dtos\" />
+    <Folder Include="Features\SubscriptionPayments\Models\" />
+    <Folder Include="Features\SubscriptionPayments\Profiles\" />
+    <Folder Include="Features\SubscriptionPayments\Queries\" />
+    <Folder Include="Features\SubscriptionPayments\Rules\" />
+    <Folder Include="Features\SubscriptionPayments\Constants\" />
+    <Folder Include="Features\SubscriptionPayments\Command\" />
   </ItemGroup>
 
 </Project>

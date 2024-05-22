@@ -19,16 +19,25 @@ public class AuthenticationBusinessRules
     public async Task CheckIfUserAlreadyExists(string userId)
     {
         var user = await _userReadRepository.GetByIdAsync(userId);
-        if (user is not null) throw new BusinessException(AuthenticationMessages.UserAlreadyExist); //TODO: Localize message.
+        if (user is not null) throw new BusinessException(AuthenticationMessages.UserAlreadyExist);
+        
     }
+
     public async Task CheckIfUserDoesNotExists(User user)
     {
         if (user is null) throw new BusinessException(AuthenticationMessages.UserNotFound); //TODO: Localize message.
     }
+
     public async Task CheckIfPasswordCorrect(string password, byte[] passwordHash, byte[] passwordSalt)
     {
         if (HashingHelper.VerifyPasswordHash(password, passwordHash, passwordSalt) is false)
-            throw new BusinessException(AuthenticationMessages.UserPasswordDoesNotCorrect); //TODO: Localize message.
+            throw new BusinessException(AuthenticationMessages.UserPasswordDoesNotCorrect);
+    }
+
+    public async Task CheckIfConfirmPasswordCorrect(string password,string confirmPassword ,byte[] passwordHash, byte[] passwordSalt)
+    {
+        if (password != confirmPassword)
+            throw new BusinessException(AuthenticationMessages.PasswordDoNotMatch);
     }
 
     public async Task CheckIfRefresfTokenIsValid(RefreshToken refreshToken)

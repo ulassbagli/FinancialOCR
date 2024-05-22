@@ -1,10 +1,10 @@
 using Application.Features.Developers.Dtos;
 using Application.Features.Developers.Rules;
 using Application.Services.Repositories;
-using Application.Services.Repositories.Developers;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Project.Application.Services.Repositories.Developers;
 
 namespace Application.Features.Developers.Commands.DeleteCommand;
 

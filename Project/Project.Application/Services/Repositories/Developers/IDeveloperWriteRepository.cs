@@ -1,9 +1,9 @@
 using Core.Persistence.Repositories;
 using Domain.Entities;
 
-namespace Application.Services.Repositories.Developers;
+namespace Project.Application.Services.Repositories.Developers;
 
-public interface IDeveloperWriteRepository: IWriteRepository<Developer>
+public interface IDeveloperWriteRepository : IWriteRepository<Developer>
 {
-    
+
 }

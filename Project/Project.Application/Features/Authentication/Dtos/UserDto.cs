@@ -1,8 +1,12 @@
+using Core.Security.Entities;
+
 namespace Application.Features.Authentication.Dtos;
 
-public class UserDto
+public class UserDto : User
 {
-    public string Email { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string ConfirmPassword { get; set; }
 }

@@ -1,9 +1,9 @@
 ﻿using Application.Features.Frameworks.Models;
-using Application.Services.Repositories.Frameworks;
 using AutoMapper;
 using Core.Application.Requests;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Project.Application.Services.Repositories.Frameworks;
 
 namespace Application.Features.Frameworks.Queries;
 

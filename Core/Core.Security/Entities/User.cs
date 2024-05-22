@@ -9,6 +9,7 @@ public class User : Entity
     public string LastName { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }
+    public string Password { get; set; }
     public byte[] PasswordSalt { get; set; }
     public byte[] PasswordHash { get; set; }
     public bool Status { get; set; }
@@ -22,15 +23,16 @@ public class User : Entity
         RefreshTokens = new HashSet<RefreshToken>();
     }
 
-    public User(Guid id, string firstName, string lastName, string email) : this()
+    public User(Guid id, string firstName, string lastName, string email, string password) : this()
     {
         Id = id;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
+        Password = password;
     }
-    public User(Guid id, string firstName, string lastName, string email, byte[] passwordSalt, byte[] passwordHash,
-                bool status, AuthenticatorType authenticatorType) : this(id, firstName, lastName, email)
+    public User(Guid id, string firstName, string lastName, string email,string password ,byte[] passwordSalt, byte[] passwordHash,
+                bool status, AuthenticatorType authenticatorType) : this(id, firstName, lastName, email, password)
     {
         PasswordSalt = passwordSalt;
         PasswordHash = passwordHash;
