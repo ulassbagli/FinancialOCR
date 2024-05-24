@@ -7,5 +7,10 @@ public enum OperationClaimsEnum
     Developer = 3,
     Accountant = 4,
     Company = 5,
-    
+    Customer = 6,
+    File = 7,
+    Invoice = 8,
+    OcrResult = 9,
+    SubscriptionPayment = 10,
+
 }
