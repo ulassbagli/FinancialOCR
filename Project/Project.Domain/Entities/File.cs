@@ -12,7 +12,13 @@ namespace Project.Domain.Entities
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Path { get; set; }
+        public Guid CustomerId { get; set; }
         public DateTime ExpirationDate { get; set; }
+
+        public bool ShouldStore { get; set; }
+        public bool ShouldDelete { get; set; }
+        public Guid ImageUploadId { get; set; }
+        public ImageUpload ImageUpload { get; set; }
 
     }
 }

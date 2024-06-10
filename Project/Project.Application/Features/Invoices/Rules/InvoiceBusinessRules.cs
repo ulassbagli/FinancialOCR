@@ -25,7 +25,7 @@ namespace Project.Application.Features.Invoices.Rules
         }
         public async Task CheckIfInvoiceAlreadyExists(string userId)
         {
-            var invoice = await _invoiceReadRepository.GetAsync(b => b.userId == Guid.Parse(userId));
+            var invoice = await _invoiceReadRepository.GetAsync(b => b.Id == Guid.Parse(userId));
             if (invoice is not null) throw new BusinessException(InvoiceMessages.InvoiceAlreadyExists); //TODO: Localize message.
         }
         public async Task<User> CheckIfUserDoesNotExistsAndGetUser(string userId)

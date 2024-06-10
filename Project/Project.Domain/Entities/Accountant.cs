@@ -12,5 +12,7 @@ namespace Project.Domain.Entities
     {
         public Guid Id { get; set; }
         public virtual User User { get; set; }
+
+        public ICollection<Customer> Customer { get; set; }
     }
 }

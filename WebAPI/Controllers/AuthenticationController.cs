@@ -3,6 +3,7 @@ using Application.Features.Authentication.Command.RegisterCommand;
 using Core.Security.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MediatR;
 
 namespace WebAPI.Controllers;
 
@@ -10,11 +11,13 @@ namespace WebAPI.Controllers;
 [ApiController]
 public class AuthenticationController : BaseController
 {
+    readonly IMediator _mediator; 
+
     [AllowAnonymous]
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterCommand registerCommand)
     {
-        var result = await Mediator.Send(registerCommand);
+        var result = await _mediator.Send(registerCommand);
         return Created("",result);
     }
     

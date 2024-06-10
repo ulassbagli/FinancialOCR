@@ -1,7 +1,4 @@
 ﻿using Application.Features.Authentication.Command.UserOperationClaimCommand;
-using Application.Features.OcrResults.Commands.CreateCommand;
-using Application.Features.OcrResults.Dtos.BaseDto;
-using Application.Features.OcrResults.Rules;
 using Application.Services.Repositories.Users;
 using AutoMapper;
 using Core.Security.Entities;

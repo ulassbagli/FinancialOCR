@@ -1,7 +1,4 @@
-﻿using Application.Features.Companys.Commands.DeleteCommand;
-using Application.Features.Companys.Dtos;
-using Application.Features.Companys.Rules;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Entities;
 using MediatR;
 using Project.Application.Features.Companies.Dtos;

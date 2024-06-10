@@ -27,7 +27,7 @@ namespace Project.Application.Features.Companies.Rules
         }
         public async Task CheckIfCompanyAlreadyExists(string userId)
         {
-            var company = await _companyReadRepository.GetAsync(b => b.UserId == Guid.Parse(userId));
+            var company = await _companyReadRepository.GetAsync(b => b.Id == Guid.Parse(userId));
             if (company is not null) throw new BusinessException(CompanyMessages.CompanyAlreadyExists); //TODO: Localize message.
         }
         public async Task<User> CheckIfUserDoesNotExistsAndGetUser(string userId)

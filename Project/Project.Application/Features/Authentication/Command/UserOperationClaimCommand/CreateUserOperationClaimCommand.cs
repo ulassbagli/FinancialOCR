@@ -2,6 +2,7 @@ using Application.Services.Repositories.OperationClaims;
 using Application.Services.Repositories.UserOperationClaims;
 using Core.Security.Entities;
 using MediatR;
+using Project.Domain.Entities;
 
 namespace Application.Features.Authentication.Command.UserOperationClaimCommand;
 
@@ -9,7 +10,7 @@ public class CreateUserOperationClaimCommand : IRequest<List<UserOperationClaim>
 {
     public User User { get; set; }
     public HashSet<OperationClaim> OperationClaims { get; set; }
-    
+
     public class CreateUserOperationClaimCommandHandler : IRequestHandler<CreateUserOperationClaimCommand, List<UserOperationClaim>>
     {
         private readonly IUserOperationClaimWriteRepository _userOperationClaimWriteRepository;

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Project.Application.Features.Customers.Commands.DeleteCommand
 {
-    public class DeleteCustomerCommand : IRequest<DeletedCustomerDto
+    public class DeleteCustomerCommand : IRequest<DeletedCustomerDto>
     {
         public string Id { get; set; }
         public bool isSoftDelete { get; set; }

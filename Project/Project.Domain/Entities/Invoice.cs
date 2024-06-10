@@ -9,7 +9,7 @@ namespace Project.Domain.Entities
 {
     public  class Invoice : Entity
     {
-        public Guid Id { get; set; }
+
         public virtual File File { get; set; }
         public virtual Customer Customer { get; set; }
         public string InvoiceId { get; set; }

@@ -37,7 +37,7 @@ namespace Project.Application.Features.Invoices.Queries
             public async Task<InvoiceListModel> Handle(GetListInvoiceByDynamicQuery request, CancellationToken cancellationToken)
             {
                 var models = await _invoiceReadRepository.GetListByDynamicAsync(request.Dynamic, include:
-                    m => m.Include(c => c.User),
+                    m => m.Include(c => c.InvoiceId),
                     index: request.PageRequest.Page,
                     size: request.PageRequest.PageSize,
                     cancellationToken: cancellationToken);

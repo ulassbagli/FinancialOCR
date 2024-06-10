@@ -34,7 +34,7 @@ namespace Project.Application.Features.Customers.Commands.UpdateCommand
             public async Task<BaseCustomerDto> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
             {
                 var customerToUpdate = await _customerBusinessRules.CheckIfCustomerDoesNotExistsAndGetCustomer(request.Id);
-                await _customerBusinessRules.CheckIfUserDoesNotExistsAndGetUser(request.UserId);
+                await _customerBusinessRules.CheckIfCustomerDoesNotExistsAndGetCustomer(request.UserId);
 
                 _mapper.Map(request, customerToUpdate, typeof(UpdateCustomerCommand), typeof(Customer));
                 await _customerWriteRepository.Update(customerToUpdate);

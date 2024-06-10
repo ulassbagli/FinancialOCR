@@ -23,26 +23,20 @@ namespace Project.Application.Features.Customers.Rules
             _customerReadRepository = customerReadRepository;
             _userReadRepository = userReadRepository;
         }
-        public async Task CheckIfCustomerAlreadyExists(string userId)
+        public async Task CheckIfCustomerAlreadyExists(string customerId)
         {
-            var customer = await _customerReadRepository.GetAsync(b => b.UserId == Guid.Parse(userId));
+            var customer = await _customerReadRepository.GetAsync(b => b.Id == Guid.Parse(customerId));
             if (customer is not null) throw new BusinessException(CustomerMessages.CustomerAlreadyExists); //TODO: Localize message.
-        }
-        public async Task<User> CheckIfUserDoesNotExistsAndGetUser(string userId)
-        {
-            var user = await _userReadRepository.GetByIdAsync(userId);
-            if (user is null) throw new BusinessException(CustomerMessages.UserNotFound); //TODO: Localize message.
-            return user;
-        }
-        public async Task CheckIfCustomerDoesNotExists(Customer customer)
-        {
-            if (customer == null) throw new BusinessException(CustomerMessages.CustomerNotFound); //TODO: Localize message.
         }
         public async Task<Customer> CheckIfCustomerDoesNotExistsAndGetCustomer(string customerId)
         {
             var customer = await _customerReadRepository.GetByIdAsync(customerId);
-            if (customer == null) throw new BusinessException(CustomerMessages.CustomerNotFound); //TODO: Localize message.
+            if (customer is null) throw new BusinessException(CustomerMessages.CustomerNotFound); //TODO: Localize message.
             return customer;
+        }
+        public async Task CheckIfCustomerDoesNotExists(Customer customer)
+        {
+            if (customer == null) throw new BusinessException(CustomerMessages.CustomerNotFound); //TODO: Localize message.
         }
     }
 }

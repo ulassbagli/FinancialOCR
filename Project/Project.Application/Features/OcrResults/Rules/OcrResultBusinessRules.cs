@@ -25,7 +25,7 @@ namespace Project.Application.Features.OcrResults.Rules
         }
         public async Task CheckIfOcrResultAlreadyExists(string userId)
         {
-            var ocrResult = await _ocrResultReadRepository.GetAsync(b => b.UserId == Guid.Parse(userId));
+            var ocrResult = await _ocrResultReadRepository.GetAsync(b => b.Id == Guid.Parse(userId));
             if (ocrResult is not null) throw new BusinessException(OcrResultMessages.OcrResultAlreadyExists); //TODO: Localize message.
         }
         public async Task<User> CheckIfUserDoesNotExistsAndGetUser(string userId)

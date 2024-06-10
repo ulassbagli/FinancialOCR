@@ -108,4 +108,24 @@ public class WriteRepository<T, TContext> : IWriteRepository<T>
 
     public async Task<int> SaveAsync()
         => await Context.SaveChangesAsync();
+
+    public async Task<T> UpdateAsync(T entity, bool withSave = true)
+    {
+        EntityEntry<T> entry = Table.Update(entity);
+        if (withSave)
+        {
+            await SaveAsync();
+        }
+        return entry.Entity;
+    }
+
+    Task IWriteRepository<T>.UpdateAsync(T entity, bool withSave)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteAsync(T Entity)
+    {
+        throw new NotImplementedException();
+    }
 }

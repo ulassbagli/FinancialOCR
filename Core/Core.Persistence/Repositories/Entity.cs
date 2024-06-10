@@ -11,6 +11,8 @@ public class Entity
     public Entity()
     {
         CreatedDate = DateTime.UtcNow;
+        DeletedDate = DateTime.UtcNow;
+        UpdatedDate = DateTime.UtcNow;
     }
     
     public Entity(Guid id) : this()

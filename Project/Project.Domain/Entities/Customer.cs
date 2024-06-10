@@ -12,6 +12,7 @@ namespace Project.Domain.Entities
     {
         public Guid Id { get; set; }
         public virtual User User { get; set; }
-        public virtual Invoice Invoice { get; set; }
+        public ICollection<Invoice> Invoice { get; set; }
+        public ICollection<ImageUpload> ImageUpload { get; set; }
     }
 }

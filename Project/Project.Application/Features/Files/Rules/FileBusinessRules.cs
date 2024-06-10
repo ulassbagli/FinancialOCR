@@ -26,7 +26,7 @@ namespace Project.Application.Features.Files.Rules
         }
         public async Task CheckIfFileAlreadyExists(string userId)
         {
-            var file = await _fileReadRepository.GetAsync(b => b.UserId == Guid.Parse(userId));
+            var file = await _fileReadRepository.GetAsync(b => b.Id == Guid.Parse(userId));
             if (file is not null) throw new BusinessException(FileMessages.FileAlreadyExists); //TODO: Localize message.
         }
         public async Task<User> CheckIfUserDoesNotExistsAndGetUser(string userId)
@@ -46,3 +46,4 @@ namespace Project.Application.Features.Files.Rules
             return file;
         }
     }
+}

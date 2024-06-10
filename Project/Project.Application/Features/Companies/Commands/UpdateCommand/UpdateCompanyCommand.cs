@@ -1,7 +1,4 @@
-﻿using Application.Features.Companys.Commands.UpdateCommand;
-using Application.Features.Companys.Dtos.BaseDto;
-using Application.Features.Companys.Rules;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Entities;
 using MediatR;
 using Project.Application.Features.Companies.Dtos.BaseDto;

@@ -25,7 +25,7 @@ namespace Project.Application.Features.Accountants.Rules
         }
         public async Task CheckIfAccountantAlreadyExists(string userId)
         {
-            var Accountant = await _accountantReadRepository.GetAsync(b => b.UserId == Guid.Parse(userId));
+            var Accountant = await _accountantReadRepository.GetAsync(b => b.Id == Guid.Parse(userId));
             if (Accountant is not null) throw new BusinessException(AccountantMessages.AccountantAlreadyExists); //TODO: Localize message.
         }
         

@@ -30,9 +30,10 @@ namespace Project.Application.Features.Invoices.Queries
 
             public async Task<InvoiceListModel> Handle(GetListInvoiceQuery request, CancellationToken cancellationToken)
             {
-                var invoices = await _invoiceReadRepository.GetListAsync(include: m => m.Include(p => p.User),
+                var invoices = await _invoiceReadRepository.GetListAsync(include: m => m.Include(p => p.InvoiceId),
                     index: request.PageRequest.Page, size: request.PageRequest.PageSize);
                 return _mapper.Map<InvoiceListModel>(invoices);
             }
         }
     }
+}

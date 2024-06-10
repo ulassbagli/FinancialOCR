@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Application.Requests;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Project.Application.Features.Accountants.Models;
 using Project.Application.Services.Repositories.Accountants;
 using System;

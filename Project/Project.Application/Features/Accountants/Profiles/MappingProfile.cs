@@ -15,7 +15,7 @@ namespace Project.Application.Features.Accountants.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Accountants, BaseAccountantDto>();
+            CreateMap<Accountant, BaseAccountantDto>();
         }
     }
 }

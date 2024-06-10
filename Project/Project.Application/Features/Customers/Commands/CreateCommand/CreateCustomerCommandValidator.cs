@@ -12,7 +12,7 @@ namespace Project.Application.Features.Customers.Commands.CreateCommand
     {
         public CreateCustomerCommandValidator() 
         {
-            RuleFor(p => p.UserId)
+            RuleFor(p => p.CustomerId)
             .NotEmpty().WithMessage("{PropertyName}" + AspectMessages.IsRequired)
             .NotNull();
         }

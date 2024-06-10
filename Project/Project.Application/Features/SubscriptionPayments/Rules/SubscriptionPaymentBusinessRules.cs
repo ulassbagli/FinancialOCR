@@ -25,7 +25,7 @@ namespace Project.Application.Features.SubscriptionPayments.Rules
         }
         public async Task CheckIfSubscriptionPaymentAlreadyExists(string userId)
         {
-            var subscriptionPayment = await _subscriptionPaymentReadRepository.GetAsync(b => b.UserId == Guid.Parse(userId));
+            var subscriptionPayment = await _subscriptionPaymentReadRepository.GetAsync(b => b.Id == Guid.Parse(userId));
             if (subscriptionPayment is not null) throw new BusinessException(SubscriptionPaymentMessages.SubscriptionPaymentAlreadyExists); //TODO: Localize message.
         }
         public async Task<User> CheckIfUserDoesNotExistsAndGetUser(string userId)

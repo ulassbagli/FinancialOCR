@@ -57,4 +57,24 @@ public class ReadRepository<T, TContext> : IReadRepository<T>
             return await queryable.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
         }
     }
+
+    public Task<IEnumerable<T>> GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<T>> GetByFilterAsync(Expression<Func<T, bool>> predicate)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<T> GetByCustomerId(Guid customerId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<T> GetByDateRange(DateTime startDate, DateTime endDate)
+    {
+        throw new NotImplementedException();
+    }
 }

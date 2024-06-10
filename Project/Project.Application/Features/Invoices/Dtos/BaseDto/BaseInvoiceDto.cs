@@ -15,6 +15,6 @@ namespace Project.Application.Features.Invoices.Dtos.BaseDto
         public string type { get; set; }
         public decimal Amount { get; set; }
         public decimal TaxAmount { get; set; }
-        public int TaxRate { get; set; 
+        public int TaxRate{ get; set; }
     }
 }

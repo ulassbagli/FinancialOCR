@@ -19,4 +19,7 @@ public interface IReadRepository<T> : IRepository<T> where T : Entity
     
     Task<T> GetAsync(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool tracking = true);
     Task<T> GetByIdAsync(string id, bool tracking = true);
+
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<IEnumerable<T>> GetByFilterAsync(Expression<Func<T, bool>> predicate);
 }

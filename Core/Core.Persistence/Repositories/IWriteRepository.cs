@@ -12,4 +12,6 @@ public interface IWriteRepository<T> : IRepository<T> where T : Entity
     Task<T> SoftRemoveAsync(string id, bool withSave = true);
     Task<T> Update(T entity, bool withSave = true);
     Task<int> SaveAsync();
+    Task UpdateAsync(T entity, bool withSave = true);
+    Task DeleteAsync(T Entity);
 }

@@ -13,8 +13,29 @@ namespace Project.Persistence.Repositories.Files
 {
     public class FileWriteRepository : WriteRepository<File, FinancialOCRDbContext>, IFileWriteRepository
     {
+        private readonly FinancialOCRDbContext _context;
+
         public FileWriteRepository(FinancialOCRDbContext context) : base(context)
         {
+            _context = context;
+        }
+
+        public async Task AddAsync(File entity)
+        {
+            await _context.Set<File>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpadateAsync(File entity)
+        {
+            _context.Set<File>().Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(File entity)
+        {
+            _context.Set<File>().Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

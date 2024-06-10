@@ -5,6 +5,7 @@ using Core.Security.Entities;
 using Core.Security.Enums;
 using Domain.Entities;
 using MediatR;
+using Project.Application.Features.Authentication.Command.CustomerOperationClaimCommand;
 using Project.Application.Features.Customers.Dtos.BaseDto;
 using Project.Application.Features.Customers.Rules;
 using Project.Application.Services.Repositories.Customers;
@@ -19,7 +20,7 @@ namespace Project.Application.Features.Customers.Commands.CreateCommand
 {
     public class CreateCustomerCommand : IRequest<BaseCustomerDto>
     {
-        public string UserId { get; set; }
+        public string CustomerId { get; set; }
 
         public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, BaseCustomerDto>
         {
@@ -28,33 +29,35 @@ namespace Project.Application.Features.Customers.Commands.CreateCommand
             private readonly ICustomerWriteRepository _customerWriteRepository;
             private readonly IUserReadRepository _userReadRepository;
             private readonly CustomerBusinessRules _customerBusinessRules;
+            private readonly ICustomerReadRepository _customerReadRepository;
 
             public CreateCustomerCommandHandler(ICustomerWriteRepository customerWriteRepository, IMapper mapper,
-                CustomerBusinessRules customerBusinessRules, IMediator mediator, IUserReadRepository userReadRepository)
+                CustomerBusinessRules customerBusinessRules, IMediator mediator, IUserReadRepository userReadRepository, ICustomerReadRepository customerReadRepository)
             {
                 _mapper = mapper;
                 _customerBusinessRules = customerBusinessRules;
                 _mediator = mediator;
                 _userReadRepository = userReadRepository;
                 _customerWriteRepository = customerWriteRepository;
+                _customerReadRepository = customerReadRepository;
             }
 
             public async Task<BaseCustomerDto> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
             {
-                User user = await _customerBusinessRules.CheckIfUserDoesNotExistsAndGetUser(request.UserId);
-                await _customerBusinessRules.CheckIfCustomerAlreadyExists(request.UserId);
+                Customer customer = await _customerBusinessRules.CheckIfCustomerDoesNotExistsAndGetCustomer(request.CustomerId);
+                await _customerBusinessRules.CheckIfCustomerAlreadyExists(request.CustomerId);
 
                 var mappedCustomer = _mapper.Map<Customer>(request);
                 var createdCustomer = await _customerWriteRepository.AddAsync(mappedCustomer);
-                await AddRoleToUserAsync(user);
+                await AddRoleToCustomerAsync(customer);
                 return _mapper.Map<BaseCustomerDto>(createdCustomer);
             }
 
-            private async Task AddRoleToUserAsync(User userToAdd)
+            private async Task AddRoleToCustomerAsync(Customer customerToAdd)
             {
-                await _mediator.Send(new CreateUserOperationClaimCommand
+                await _mediator.Send(new CreateCustomerOperationClaimCommand
                 {
-                    User = userToAdd,
+                    Customer = customerToAdd,
                     OperationClaims = new HashSet<OperationClaim>() { new() { Name = OperationClaimsEnum.Customer.ToString() } }
                 });
             }
